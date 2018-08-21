@@ -22,11 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
         List<Recycler_item> items=new ArrayList<>();
         Recycler_item[] item=new Recycler_item[5];
-        item[0]=new Recycler_item(R.drawable.iu1,"#1");
-        item[1]=new Recycler_item(R.drawable.iu2,"#2");
-        item[2]=new Recycler_item(R.drawable.iu3jpg,"#3");
-        item[3]=new Recycler_item(R.drawable.iu4,"#4");
-        item[4]=new Recycler_item(R.drawable.iu5,"#5");
+        item[0]=new Recycler_item(R.drawable.sun1,"듬뿍듬뿍 썬크림", "80%");
+        item[1]=new Recycler_item(R.drawable.sun1,"쫀득쫀득 썬크림","90%");
+        item[2]=new Recycler_item(R.drawable.sun1,"말랑말랑 썬크림","50%");
+        item[3]=new Recycler_item(R.drawable.sun1,"듬뿍듬뿍 썬크림","80%");
+        item[4]=new Recycler_item(R.drawable.sun1,"듬뿍듬뿍 썬크림","80%");
 
         for(int i=0;i<5;i++) items.add(item[i]);
 

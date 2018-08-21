@@ -16,11 +16,11 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.ViewHolder> {
     Context context;
-    List<Recycler_item> items;
+    List<Recycler_item2> items;
     int item_layout;
-    public RecyclerAdapter(Context context, List<Recycler_item> items, int item_layout) {
+    public RecyclerAdapter2(Context context, List<Recycler_item2> items, int item_layout) {
         this.context=context;
         this.items=items;
         this.item_layout=item_layout;
@@ -28,23 +28,22 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview,null);
+        View v= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_cardview2,null);
         return new ViewHolder(v);
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final Recycler_item item=items.get(position);
-        Drawable drawable=context.getResources().getDrawable(item.getImage());
-        holder.image.setBackground(drawable);
-        holder.title.setText(item.getTitle());
-        holder.percent.setText(item.getPercent());
+        final Recycler_item2 item=items.get(position);
+        holder.name.setText(item.getName());
+        holder.number.setText(item.getNumber());
+
         holder.cardview.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(context,item.getTitle(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(context,item.getName(),Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context,cosmetic_review.class);
-                intent.putExtra("name",item.getTitle());
+                intent.putExtra("name",item.getName());
                 context.startActivity(intent);
             }
         });
@@ -56,17 +55,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView image;
-        TextView title;
+        TextView name;
+        TextView number;
         CardView cardview;
-        TextView percent;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            image=(ImageView)itemView.findViewById(R.id.image);
-            title=(TextView)itemView.findViewById(R.id.title);
             cardview=(CardView)itemView.findViewById(R.id.cardview);
-            percent=(TextView)itemView.findViewById(R.id.percent);
+           name=(TextView)itemView.findViewById(R.id.name);
+            number=(TextView)itemView.findViewById(R.id.number);
         }
 
     }
